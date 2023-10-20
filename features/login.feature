@@ -1,33 +1,22 @@
-Feature: user login
+Feature:login
+  the user can be Admin or Customer or installer when he chose to login then
+  he should enter the correct email & password to be on log in page
 
-  Scenario: Successful log in
+  Scenario Outline: login success or fail
     Given that the user is not logged in
-    And the username is "marwa"
-    And the password is "1110"
-    And the userChoice is "1"
-    Then the user login succeeds
+    When the user  enter email "<email>"
+    And the enter password "<password>"
+    And the rul is "<rul>"
+    Then the message will be display "<result>"
+    And  the user move to the "<page>"
 
-  Scenario: User entered a wrong username
-    Given that the user is not logged in
-    And the username is "not exist"
-    And the password is "truePass"
-    And the userChoice is "1"
-    Then the user will not login
-    And show the reason why he can't logged in
+    Examples:
+      | email                | password       | rul      | result                 | page         |
+      | adminClean@gmail.com | adminCSS       | admin    | Admin login success    | adminPage    |
+      | alaa@gmail.com       | alaa20         | customer | Customer login success | customerPage |
+      | deem@gmail.com       |deem27         | installer | installer login success | installerPage |
+      | another email        | wrong password | none     | login fail             | LoginPage    |
 
-  Scenario: User entered a wrong password
-    Given that the user is not logged in
-    And the username is "marwa"
-    And the password is "not true"
-    And the userChoice is "1"
-    Then the user will not login
-    And show the reason why he can't logged in
-
-  Scenario: User entered a wrong userChoice
-    Given that the user is not logged in
-    And the username is "marwa"
-    And the password is "1110"
-    And the userChoice is "4"
-    Then the user will not login
-    And show the reason why he can't logged in
-
+  Scenario: Successful log out
+    Given that the user is logged out
+    Then the user log out succeeds
