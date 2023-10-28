@@ -1,36 +1,21 @@
-Feature: Add a product
+Feature: addproduct
 
-  Scenario: Add a steering product
-    Given the user wants to add a new product
-    When the user enters a valid information for steering
-    Then a new steering product with the given details is added to the system
+  Description:you can add if the admin login
 
-  Scenario: Add a Engine product
-    Given the user wants to add a new product
-    When the user enters a valid information for Engine
-    Then a new Engine product with the given details is added to the system
 
-  Scenario: Add a car brakes product
-    Given the user wants to add a new product
-    When the user enters a valid information for car brakes
-    Then a new car brakes product with the given details is added to the system
+  Scenario: add product successfully
+    Given that the admin is logged in
+    And there is a product with name "Steering" , type "internal" , and the price "20", amount "2"
+    When the meal is added to the menu
+    Then the meal with name "Steering" ,type "internal" , and the price "20", amount "2" inside the listing
 
-  Scenario: Add a air conditioner product
-    Given the user wants to add a new product
-    When the user enters a valid information for air conditioner
-    Then a new air conditioner product with the given details is added to the system
 
-  Scenario: Add a Electrical and Lighting product
-    Given the user wants to add a new product
-    When the user enters a valid information for Electrical and Lighting
-    Then a new Electrical and Lighting product with the given details is added to the system
+  Scenario: add product and admin is not logged in
+    Given that the admin is not logged in
+    And there is a meal with name "Steering" , type "internal" , and the price "20", amount "2"
+    When the meal is added to the menu
+    Then the error message "cant add because admin is not log in" is given
 
-  Scenario: Add a Tires and Wheels product
-    Given the user wants to add a new product
-    When the user enters a valid information for Tires and Wheels
-    Then a new Tires and Wheels product with the given details is added to the system
 
-  Scenario: Add a Car Battery product
-    Given the user wants to add a new product
-    When the user enters a valid information for Car Battery
-    Then a new Car Battery product with the given details is added to the system
+
+

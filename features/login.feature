@@ -1,22 +1,28 @@
-Feature:login
-  the user can be Admin or Customer or installer when he chose to login then
-  he should enter the correct email & password to be on log in page
+Feature: login
+  Description:you can login if the username and password is true
 
-  Scenario Outline: login success or fail
-    Given that the user is not logged in
-    When the user  enter email "<email>"
-    And the enter password "<password>"
-    And the rul is "<rul>"
-    Then the message will be display "<result>"
-    And  the user move to the "<page>"
 
-    Examples:
-      | email                | password       | rul      | result                 | page         |
-      | adminClean@gmail.com | adminCSS       | admin    | Admin login success    | adminPage    |
-      | alaa@gmail.com       | alaa20         | customer | Customer login success | customerPage |
-      | deem@gmail.com       |deem27         | installer | installer login success | installerPage |
-      | another email        | wrong password | none     | login fail             | LoginPage    |
 
-  Scenario: Successful log out
-    Given that the user is logged out
-    Then the user log out succeeds
+  Scenario: login
+    Given the username is "deema"
+    And the password is "de123"
+    Then login is done
+    And welcome
+
+  Scenario:  Wrong login wrong pass
+    Given the username is "besan"
+    And the password is "be133"
+    Then login failed
+    And sorry
+
+  Scenario:  Wrong login wrong usernam
+    Given the username is "bess"
+    And the password is "ss123"
+    Then login failed
+    And sorry
+
+  Scenario:  Wrong login wrong usernam and wrong pass
+    Given the username is "domdom"
+    And the password is "dom133"
+    Then login failed
+    And sorry
