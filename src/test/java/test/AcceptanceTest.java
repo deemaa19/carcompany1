@@ -4,6 +4,9 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
+
+
+
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "features",
@@ -12,6 +15,10 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         glue = {"test"}
 )
-
 public class AcceptanceTest {
+
+
+
+
+
 }
