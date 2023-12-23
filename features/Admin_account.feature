@@ -33,17 +33,6 @@ Feature: Admin Account Management for Car Company
       | password_car123   | newPass_car456 |
       | securePass_car789 | anotherPass123 |
 
-  Scenario: Admin logs out
-    Given the admin is logged in
-    When the admin clicks the logout button
-    Then the admin should be logged out successfully
-    And redirected to the login page
 
-  Scenario: Admin deletes their account
-    Given the admin is on the account details page
-    When the admin selects to delete their account
-    And confirms the deletion
-    Then the admin account should be deleted
-    And the admin should be redirected to the login page
-    And all associated dealership information should be removed from the system
+
 

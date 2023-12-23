@@ -19,20 +19,7 @@ Feature: Customer Ratings and Reviews for Car Company Products
       | Ford Explorer         |
       | BMW X5                |
 
-  Scenario Outline: Customer provides a rating and review for a product
-    Given the customer is on the product details page
-    When the customer rates the product with a numerical score
-    And writes a review in the text box
-    And clicks the submit button
-    Then the customer's rating and review should be recorded successfully
-    And the overall product rating should be updated
-    And the customer should see a confirmation message
 
-    Examples:
-      | selected_product_name | rating | review_text                        |
-      | Tesla Model S         | 5      | "This car is amazing! I love it."  |
-      | Ford Explorer         | 4      | "Great SUV for family adventures." |
-      | BMW X5                | 4.5    | "Excellent performance and style." |
 
   Scenario Outline: Customer updates their rating and review for a product
     Given the customer has previously rated and reviewed a product

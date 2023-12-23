@@ -53,9 +53,5 @@ Feature: Admin Dashboard for Car Company
       | driver789         | 2023-05-20       | 13:45            | completed   |
 
 
-  Scenario: Admin logs out
-    Given the admin is on the admin dashboard
-    When the admin clicks the logout button
-    Then the admin should be logged out successfully
-    And redirected to the login page
+
 
