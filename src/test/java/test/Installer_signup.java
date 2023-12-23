@@ -5,44 +5,25 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Installer_signup {
+
     @Given("the installer is on the sign-up page")
-    public void theInstallerIsOnTheSignUpPage() {
+    public void the_installer_is_on_the_sign_up_page() {
 
     }
     @When("the installer provides valid sign-up information")
-    public void theInstallerProvidesValidSignUpInformation() {
+    public void the_installer_provides_valid_sign_up_information() {
 
     }
     @Then("the installer account should be created successfully")
-    public void theInstallerAccountShouldBeCreatedSuccessfully() {
+    public void the_installer_account_should_be_created_successfully() {
 
     }
     @Then("the installer should be redirected to the login page")
-    public void theInstallerShouldBeRedirectedToTheLoginPage() {
+    public void the_installer_should_be_redirected_to_the_login_page() {
 
     }
     @Then("the installer should receive a welcome email")
-    public void theInstallerShouldReceiveAWelcomeEmail() {
-
-    }
-    @When("the installer provides invalid sign-up information")
-    public void theInstallerProvidesInvalidSignUpInformation() {
-
-    }
-    @Then("the installer account should not be created")
-    public void theInstallerAccountShouldNotBeCreated() {
-
-    }
-    @Given("there is an existing installer account")
-    public void thereIsAnExistingInstallerAccount() {
-
-    }
-    @When("the installer tries to sign up with an existing email")
-    public void theInstallerTriesToSignUpWithAnExistingEmail() {
-
-    }
-    @Then("the installer should see an error message indicating the email is already in use")
-    public void theInstallerShouldSeeAnErrorMessageIndicatingTheEmailIsAlreadyInUse() {
+    public void the_installer_should_receive_a_welcome_email() {
 
     }
 

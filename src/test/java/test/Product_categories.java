@@ -49,6 +49,8 @@ public class Product_categories {
     public void theProductShouldBeDeletedSuccessfully() {
 
     }
+    @Given("the admin is logged into their account")
+    public void the_admin_is_logged_into_their_account() {
 
-
+    }
 }

@@ -1,9 +1,14 @@
 package test;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Installer_scheduling_appointment {
+    @Given("the installer is logged into their account")
+    public void the_installer_is_logged_into_their_account() {
+
+    }
     @When("the installer navigates to the appointment scheduling page")
     public void theInstallerNavigatesToTheAppointmentSchedulingPage() {
 
