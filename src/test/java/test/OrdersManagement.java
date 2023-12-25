@@ -1,5 +1,6 @@
 package test;
 
+
 import io.cucumber.java.en.*;
 import org.example.Main;
 import car.*;
@@ -62,10 +63,10 @@ public class OrdersManagement {
         assertTrue(isListCategories());
     }
 
+
     @Given("they choose List Categories")
-    public void they_choose_list_categories() {
+    public void theyChooseListCategories() {
 
     }
-
 }
 
