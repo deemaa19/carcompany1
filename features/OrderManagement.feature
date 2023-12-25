@@ -2,7 +2,7 @@ Feature: Orders Management
 
   Scenario: places a new order
     Given they choose Place Order
-    When product name is "miror"
+    When product name is "light"
     Then the order should be placed successfully
 
   Scenario: lists orders

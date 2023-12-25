@@ -1,5 +1,6 @@
 package car;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import static org.example.Main.*;
@@ -57,19 +58,19 @@ public class Product {
         for (Product product : products) {
             if (product.getName().equals(name)) {
 
-                logger.info("Product Found.");
+                logger.info("Product located..");
                 return false;
             }
         }
         products.add(new Product(name, price, category,amount));
-        logger.info("Product added successfully.");
+        logger.info("Product added .");
         return true;
     }
     public static boolean productdeleteTest(String name){
         for (Product product : products) {
             if (product.getName().equals(name)) {
                 products.remove(product);
-                logger.info("Product deleted successfully.");
+                logger.info("Product deleted .");
                 return true;
             }
         }

@@ -100,15 +100,15 @@ public class User {
         User us = new User(username, email, password, userType);
         for (User user : userDatabase) {
             if (email.equals(user.getEmail())) {
-                logger.info("this user already exist");
+                logger.info(" SORRY! user already exist");
                 return false ;}
         }
-        logger.info("Registration successful!");
+        logger.info("Registration DONE!");
         userDatabase.add(us);
         return true;
     }
     public static void adminsignin(User user){
-        logger.info("Login successful. User type: " + user.getUserType());
+        logger.info("DONE!.\n User type: " + user.getUserType());
         setAdminislogged(true);
     }
     public static void customersignin(User user){
@@ -117,7 +117,7 @@ public class User {
         loggedIngetEmailCustomer = user.getEmail();
         customerOrder = user.getEmail();
         setCustomerOrder(user.getEmail());
-        logger.info("Login successful. User type: " + user.getUserType());
+        logger.info("DONE!.\n User type: " + user.getUserType());
         setCustomerislogged(true);
     }
     public static void installersignin(String email ,String password){
@@ -128,14 +128,14 @@ public class User {
                 setInstallerislogged(true);
             }
         }
-        logger.info("Login successful. User type: installer");
+        logger.info("DONE!.\n User type: installer");
     }
     public static List<User> getlist(){
-        User customerUser= new User(CUSTOMERUT, "customer@customer.com", "123", CUSTOMERUT);
+        User customerUser= new User(CUSTOMERUT, "yara@najah", "555", CUSTOMERUT);
         userDatabasee.add(customerUser);
-        User adminUser= new User(ADMINUT, "admin@admin.com", "123", ADMINUT);
+        User adminUser= new User(ADMINUT, "sara@najah", "555", ADMINUT);
         userDatabasee.add(adminUser);
-        User installerUser= new User(INSTALLERUT, "installer@installer.com", "123", INSTALLERUT);
+        User installerUser= new User(INSTALLERUT, "tala@najah", "555", INSTALLERUT);
         userDatabasee.add(installerUser);
         return userDatabasee;
     }

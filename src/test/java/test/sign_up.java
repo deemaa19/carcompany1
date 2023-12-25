@@ -47,7 +47,6 @@ public class sign_up {
     }
     @Then("the user will sign up and added to userslist")
     public void theUserWillSignUpAndAddedToUserslist() {
-        //user.register(username,email,password,type);
         assertTrue(user.registerTest(username,email,password,type));
 
     }

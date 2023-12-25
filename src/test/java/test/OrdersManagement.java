@@ -37,7 +37,7 @@ public class OrdersManagement {
     public void theOrderShouldBePlacedSuccessfully() {
         //orderedProducts1.add()
         Products1=getproductList();
-        Product product=new Product("tear",20,"tear",20);
+        Product product=new Product("light",20,"light",20);
         int n=product.getAvailablity();
         //System.out.println(n);
         orderedProducts1.add(product);

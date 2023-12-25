@@ -4,7 +4,7 @@ package car;
 import java.util.List;
 
 public class Order {
-    static String xchoice="Invalidd choice. Please try again.";
+    static String xchoice="Invalid !!!.. \n  Retry, please:";
     private static boolean placeOrderr;
     private static boolean listOrder;
     private static boolean listCategories;

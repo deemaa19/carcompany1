@@ -34,7 +34,7 @@ public class Installer {
     private String userType;
 
     private String date;
-    public static final String INSTALLERSUCCESS = "Installer registration successful!";
+    public static final String INSTALLERSUCCESS = "Installer completed successfully!!";
 
     public String getDate() {
         return date;
@@ -87,7 +87,7 @@ public class Installer {
     public static boolean reginstallerTest(int id,String username , String email,String password ,String type,String date){
         for(Installer installer:installersDatabase){
             if(installer.getEmail().equals(email)&&installer.getUsername().equals(username)){
-                logger.info("Installer already registered!");
+                logger.info("Installer already in the system.");
                 return false;
             }
         }
@@ -100,9 +100,9 @@ public class Installer {
     }
 
     public static void listInstallers() {
-        logger.info("Available Date For Installers:\n");
+        logger.info("Installer Availability Dates:\n");
         for(Installer installer:installersDatabase){
-            logger.info(installer.getId()+" - "+"Installer Name:"+installer.getUsername()+" - "+"Available Date:"+installer.getDate());
+            logger.info(installer.getId()+" - "+"Installer Name:"+installer.getUsername()+" - "+"Date:"+installer.getDate());
         }
     }
 

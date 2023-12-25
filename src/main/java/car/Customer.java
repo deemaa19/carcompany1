@@ -62,23 +62,24 @@ public class Customer {
         User us = new User(username, email, password, type);
         for (User user : userDatabase) {
             if (email.equals(user.getEmail())) {
-                logger.info("this user already exist");
+                logger.info("exist already");
                 return false;}
         }
         userDatabase.add(us);
-        logger.info("Customer registration successful!");
+        logger.info("\n" +
+                "Customer registration completed successfully!");
         return true;
     }
     public static String listCustomers() {
         StringBuilder customerList = new StringBuilder("Customers:\n");
-        logger.info("Number of users in userDatabase: " + userDatabase.size());
+        logger.info("Number of users in Users Data: " + userDatabase.size());
         for (User user : userDatabase) {
             logger.info("User Type: " + user.getUserType());
             if (user.getUserType().equalsIgnoreCase(CUSTOMERU)) {
                 customerList.append("Username: ").append(user.getUsername()).append(", Email: ").append(user.getEmail()).append("\n");
             }
         }
-        logger.info("Generated Customer List: ");
+        logger.info(" list of customers.: ");
         String cList=customerList.toString();
         logger.info(cList);
         return customerList.toString();

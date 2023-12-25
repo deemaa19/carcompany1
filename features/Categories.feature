@@ -3,7 +3,7 @@ Feature: Admin Manage Categories
   Scenario: Admin adds a new category
     Given they choose Add Category
     When Category name is "interior"
-    And Category2 name is "miror"
+    And Category2 name is "light"
     Then the category should be added successfully
 
   Scenario: Admin adds a category already added

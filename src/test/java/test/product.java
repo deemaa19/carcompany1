@@ -73,8 +73,6 @@ public class product {
         productList.add(product);
         productList.add(product2);
 
-        //productadd(productName,productPrice,productCategory,productAmount);
-        //productadd(product2Name,product2Price,product2Category,product2Amount);
         assertTrue(productaddTest(productName,productPrice,productCategory,productAmount));
         assertTrue(productaddTest(product2Name,product2Price,product2Category,product2Amount));
     }
@@ -93,7 +91,7 @@ public class product {
     @Then("the product should be removed successfully")
     public void theProductShouldBeRemovedSuccessfully() {
         productList.remove(productdelete);
-        //productdelete(productdelete);
+
 
         assertTrue(productdeleteTest(productdelete));
 

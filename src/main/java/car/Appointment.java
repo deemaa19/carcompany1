@@ -76,12 +76,12 @@ public class Appointment {
                 appointments2.add(appointment);
                 Installer.setAppointments(appointments2);
                 addAppintments(appointment);
-                logger.info("Appointment scheduled successfully!");
+                logger.info("Appointment confirmed !!!");
                 return true;
 
             }
         }
-        logger.info("There is no appointment available with this number!");
+        logger.info("No appointment found associated with this number.");
         listInstallers();
         return false;
 
@@ -106,10 +106,10 @@ public class Appointment {
     public static void appointmentsList(Installer installer){
         List<Appointment> appointments = getAppointments(installer);
         for (Appointment appointment : appointments) {
-            logger.info("Appointment ID: " + appointment.getAppointmentId() + "\n" + "Customer Name: " + appointment.getCustomerName() +
-                    "\n" + "Appointment Date: " + appointment.getAppointmentDate() + "\n" + "Customer Car Date: " + appointment.getCustomerCarDate() +
-                    "\n" + "Customer Car Model: " + appointment.getCustomerCarModel());
-            logger.info("Products wanted: ");
+            logger.info("ID For Appointment: " + appointment.getAppointmentId() + "\n" + "Name: " + appointment.getCustomerName() +
+                    "\n" + "Date For Appointment: " + appointment.getAppointmentDate() + "\n" + " Car Date: " + appointment.getCustomerCarDate() +
+                    "\n" + " Car Model: " + appointment.getCustomerCarModel());
+            logger.info("Desired Products: ");
             listOrders();
         }
     }

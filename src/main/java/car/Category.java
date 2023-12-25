@@ -78,14 +78,14 @@ public class Category {
                 return true;
             }
         }
-        logger.info("Category not found.");
+        logger.info(" not found This Category.");
         return false;
     }
-    public static void deletenoti(){
-        logger.info("Category deleted successfully.");
+    public static void deletenoti(){ logger.info("\n" +
+            "Category successfully removed...");
     }
     public static void addnoti(){
-        logger.info("Category addedd successfully.");
+        logger.info("Category successfully added..!");
     }
 
 

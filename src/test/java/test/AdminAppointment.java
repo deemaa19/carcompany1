@@ -22,11 +22,11 @@ public class AdminAppointment {
     private String appointmentDate;
     Appointment appointment;
     Installer installer;
-    Installer installer111= new Installer(1, "installerrlaith", "installer@installer.com","123","installer","12/7/2023");
-    Installer installer222= new Installer(222, "installerrRRlaith", "installer@installer.com","123","installer","12/7/2023");
+    Installer installer111= new Installer(1, "installerrdeema", "deema@najah.edu","111","installer","12/12/2023");
+    Installer installer222= new Installer(222, "installerrRRdeema", "deema@najah.edu","111","installer","12/12/2023");
     public static List<Appointment> appointmentList=new ArrayList<>();
     public static List<Installer> installersDatabase = new ArrayList<>();
-    Appointment appointment111=new Appointment("LAITH","12/7/2002","LL","2012");
+    Appointment appointment111=new Appointment("DEEMA","12/12/2002","LL","2020");
 
 
     private static Logger logger = Logger.getLogger(AdminAppointment.class.getName());

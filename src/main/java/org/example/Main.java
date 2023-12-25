@@ -49,7 +49,7 @@ public class Main {
     public static Category categoryy;
 
     private static Logger logger = Logger.getLogger(Main.class.getName());
-    private static final String INVALIDATION="Invalid choice. Please try again.";
+    private static final String INVALIDATION="Sorry..Invalid choice.\n Please try again.";
 
     public static ArrayList<User> getUserDatabase() {
         return userDatabase;
@@ -78,23 +78,23 @@ public class Main {
         categories.add(categoryy);
         categoryy=new Category("Exterior");
         categories.add(categoryy);
-        categoryy=new Category("Mirors");
+        categoryy=new Category("Lighs");
         categories.add(categoryy);
-        categoryy=new Category("Tears");
+        categoryy=new Category("Seats");
         categories.add(categoryy);
-        product=new Product("miror",20,"mirors",20);
+        product=new Product("light",20,"lights",20);
         products.add(product);
-        product=new Product("tear",20,"tears",30);
+        product=new Product("Seat",20,"Seats",30);
         products.add(product);
         product=new Product("interior",20,"Interior",40);
         products.add(product);
         product=new Product("exterior",20,"Exterior",50);
         products.add(product);
 
-        availabledate1=new Dates("20/11/2023","installerlaith");
-        availabledate2=new Dates("2/11/2023","installerlaith");
-        availabledate3=new Dates("6/11/2023","installerrlaith2");
-        availabledate4=new Dates("8/11/2023","installerlaith2");
+        availabledate1=new Dates("1/1/2023","installerdeema");
+        availabledate2=new Dates("11/11/2023","installerdeema");
+        availabledate3=new Dates("5/5/2023","installerrdeema2");
+        availabledate4=new Dates("7/72023","installerdeema2");
         availableDates.add(availabledate1);
         availableDates.add(availabledate2);
         availableDates.add(availabledate3);
@@ -105,7 +105,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 ////////////////////////////////LOGIN AND REGISTER//////////////////////////////////////
-        logger.info("\n1.Register\n2.Login\n3.Exit\nChoose an option: ");
+        logger.info("Hello! Welcome to our Car Company..\n Please select a number:\n 1.Sign_Up 2.Log_In  3.Log_out \n ");
         int choice = scanner.nextInt();
         scanner.nextLine();
         switch (choice) {
@@ -116,7 +116,7 @@ public class Main {
                 loginUser();
                 break;
             case 3:
-                logger.info("Exiting the system.");
+                logger.info("log_out from the system" );
                 System.exit(0);
                 break;
             default:
@@ -136,7 +136,7 @@ public class Main {
         logger.info("Enter your password: ");
         String password = scanner.nextLine();
 
-        logger.info("Enter your user type (customer, installer): ");
+        logger.info("Are you customer or installer? \n Choose user Type: ");
         String userType = scanner.nextLine();
 
         register(username,email,password,userType);
@@ -176,8 +176,8 @@ public class Main {
         while (true) {
             adminDash=true;
             if(isAdminLoggedIn()) {
-                logger.info("\nAdmin Dashboard\n1. Manage Products\n2. Manage Categories\n3. Manage User Accounts\n4. Manage Customers\n" +
-                        "5. Manage Installers\n6. Manage Appointments\n7. Manage Orders\n8. Logout\nChoose an option: ");
+                logger.info("\nAdmin Dashboard\n1. Manage Products 2. Manage Categories 3. Manage User Accounts 4. Manage Customers\n" +
+                        "5. Manage Installers 6. Manage Appointments 7. Manage Orders 8. Logout \n Enter Number: ");
                 int choice = scanner.nextInt();
                 scanner.nextLine();
 
@@ -216,8 +216,8 @@ public class Main {
     //////////////////////////MANAGE PRODUCTS///////////////////////
     public static int manageProductsLists(){
         Scanner scanner = new Scanner(System.in);
-        logger.info("\nProduct Management\n1. Add Product\n2. Delete Product" +
-                "\n3. List Products\n4. Back\nChoose an option: ");
+        logger.info("\nProduct Management\n1. Add Product 2. Delete Product" +
+                "\n3. List Products 4. Back \n Enter Number: ");
         int choice = scanner.nextInt();
         manageProducts(choice);
         return choice;
@@ -240,7 +240,7 @@ public class Main {
                 adminDashboard();
                 return 4;
             default:
-                logger.info("Invalid choice. Please try again.");
+                logger.info("Sorry ! Invalid choice \n  Please try again.");
         }
         return 5;
     }
@@ -252,7 +252,7 @@ public class Main {
         double price = scanner.nextDouble();
         logger.info("Enter category name: ");
         String category = scanner.nextLine();
-        logger.info("Enter product amount: ");
+        logger.info("Enter product Quantity: ");
         int ava = scanner.nextInt();
         productaddTest(name,price,category,ava);
     }
@@ -266,8 +266,8 @@ public class Main {
     ///////////////////////////MANAGE CATIGORIES/////////////////////
     public static void manageCategories() {
         Scanner scanner = new Scanner(System.in);
-        logger.info("\nCategory Management\n1. Add Category\n2. Delete Category" +
-                "\n3. List Categories\n4. Search Product\n5. Back\nChoose an option: ");
+        logger.info("\nCategory Management\n1. Add Category 2. Delete Category" +
+                "\n3. List Categories 4. Search Product 5. Back \n Enter Number: ");
         int choice = scanner.nextInt();
         scanner.nextLine();
         manageCat(choice);
@@ -301,10 +301,10 @@ public class Main {
         logger.info("Enter category name: ");
         String name = scanner.nextLine();
         addcatTEG(name);
-        logger.info("Do you want to add products to this Category(y) , or leave it empty(n) ? ");
+        logger.info("Add products to this category (yes)? or leave it empty? (no)? ");
         String c = scanner.nextLine();
         switch (c) {
-            case "y":
+            case "yes":
                 logger.info("Enter product name: ");
                 String pname = scanner.nextLine();
                 logger.info("Enter product price: ");
@@ -312,9 +312,9 @@ public class Main {
                 logger.info("Enter product availability: ");
                 int ava = scanner.nextInt();
                 products.add(new Product(pname, price, name,ava));
-                logger.info("Product added successfully.");
+                logger.info("successfully!.");
                 break;
-            case "n":
+            case "no":
                 addnoti();
                 break;
             default:
@@ -362,7 +362,7 @@ public class Main {
     }
     public static void searchProducts(){
         Scanner scanner = new Scanner(System.in);
-        logger.info("Search for specific product by name:");
+        logger.info("Search about product by name:");
         String pro = scanner.nextLine();
         productsearch(pro);
     }
@@ -371,7 +371,7 @@ public class Main {
     public static void manageUserAccounts() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            logger.info("User Account Management\n1. List User Accounts\n2. Delete User Account\n3. Back\nChoose an option: ");
+            logger.info("User Account Management\n1. List User Accounts 2. Delete User Account 3. Back\nEnter Number: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -385,7 +385,7 @@ public class Main {
                 case 3:
                     return;
                 default:
-                    logger.info("Invalid choice. Please try again.");
+                    logger.info("Sorry ! Invalid choice. Please try again.");
             }
         }
     }
@@ -408,8 +408,8 @@ public class Main {
     ///////////////////////////MANAGE CUSTOMERS//////////////////////////
     public static int manageCustomersList(){
         Scanner scanner = new Scanner(System.in);
-        logger.info("\nCustomer Management\n1. Register Customer\n2. List Customers" +
-                "\n3. Back\nChoose an option: ");
+        logger.info("\nCustomer Management\n1. Sign_Up Customer 2. List Customers" +
+                "\n3. Back\nEnter Number: ");
         int choice = scanner.nextInt();
         scanner.nextLine();
         return manageCustomers(choice);
@@ -441,7 +441,7 @@ public class Main {
         if (regCustTest(username, email, password, CUSTOMERU)) {
             return "Customer registration successful!";
         } else {
-            return "Customer registration failed. User with the same email already exists.";
+            return "Customer registration failed. ";
         }
     }
     public static String regCustName(Scanner scanner){
@@ -464,8 +464,8 @@ public class Main {
     public static void manageInstallers() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            logger.info("\nInstaller Management\n1. Register Installer\n2. List Installers" +
-                    "\n3. Back\nChoose an option: ");
+            logger.info("\nInstaller Management\n1. Sign_Up Installer 2. List Installers" +
+                    "\n3. Back\nEnter Number: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -481,7 +481,7 @@ public class Main {
                 case 3:
                     return;
                 default:
-                    logger.info("Invalid choice. Please try again.");
+                    logger.info("Sorry ! Invalid choice. Please try again.");
             }
         }
     }
@@ -500,10 +500,10 @@ public class Main {
         logger.info("Enter installer's password: ");
         String password = scanner.nextLine();
 
-        logger.info("Enter the dates you are available at(Write 'Done' When finish)");
+        logger.info("Please input your available dates (Type 'finish' when finished)");
         String date = scanner.nextLine();
         switch (date){
-            case "done":
+            case "finish":
                 break;
             default:
                 installersDatabase.add(new Installer(id,username, email, password,"installer",date));
@@ -517,7 +517,7 @@ public class Main {
     public static void manageAppointments() {
         Scanner scanner = new Scanner(System.in);
         Installer installer1 = getLoggedInInstaller();
-        logger.info("Appointment Management\n1. List Appointments\n2. Back\nChoose an option: ");
+        logger.info("Appointment Management\n1. List Appointments 2. Back\nEnter Number: ");
         int choice = scanner.nextInt();
         scanner.nextLine();
         switch (choice) {
@@ -528,14 +528,14 @@ public class Main {
                 return;
 
             default:
-                logger.info("Invalid choice. Please try again.");
+                logger.info("Sorry ! Invalid choice. Please try again.");
         }
     }
     public static void date(){
         Scanner scanner = new Scanner(System.in);
         String date = scanner.nextLine();
         switch (date){
-            case "done":
+            case "finish":
                 break;
             default:
                 availableDates.add(new Dates(date,getLoggedIngetName()));
@@ -549,8 +549,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            logger.info("\nOrder Management\n1. Place Order\n2. List Orders" +
-                    "\n3. List Categories\n4. Back\nChoose an option: ");
+            logger.info("\nOrder Management\n1. Place Order 2. List Orders" +
+                    "\n3. List Categories 4. Back\nEnter Number: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -578,14 +578,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         logger.info("Available Products:");
         listProducts(products);
-        logger.info("Do you want to search specifc products ? (y/n)");
+        logger.info("Enter yes if you want to search specifc products ?");
         String pro = scanner.nextLine();
         switch (pro){
-            case "y":
+            case "yes":
                 searchProducts();
                 ordersteps();
                 break;
-            case "n":
+            case "no":
                 ordersteps();
                 break;
             default:
@@ -593,8 +593,7 @@ public class Main {
                 placeOrder();
         }
     }
-    /////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -603,8 +602,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            logger.info("\ncustomer Dashboard\n1. Browse products\n2. make purchases\n3. view orders\n4. List Categories\n" +
-                    "5. Logout\nChoose an option: ");
+            logger.info("\ncustomer Dashboard\n1. Browse products 2. make purchases 3. view orders 4. List Categories\n" +
+                    "5. Logout\nEnter Number: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -661,8 +660,8 @@ public class Main {
         Installer installer1 = getLoggedInInstaller();
 
         while (true) {
-            logger.info("\ninstaller Dashboard\n1. View installation requests\n2. schedule appointments" +
-                    "\n3. Logout\nChoose an option: ");
+            logger.info("\ninstaller Dashboard\n1. View installation requests 2. schedule appointments" +
+                    "\n3. Logout\nEnter Number: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -695,13 +694,13 @@ public class Main {
             orderstep1(input,products);
 
             if (input.equalsIgnoreCase("done")) {
-                logger.info("Do you want installation service ? (y/n)");
+                logger.info("Enter yes if you want installation service ?");
                 String in = scanner.nextLine();
                 switch (in){
-                    case "y":
+                    case "yes":
                         scheduleAppointment2();
                         break;
-                    case "n":
+                    case "no":
                         return;
 
                     default:
@@ -720,7 +719,7 @@ public class Main {
         Order order = new Order(orderIdCounter, selectedProducts);
 
         if (selectedProducts.isEmpty()) {
-            logger.info("No products selected. Order not placed.");
+            logger.info("No products selected..");
         }
 
 
@@ -735,15 +734,15 @@ public class Main {
             orderss=customer1.getOrders();
         }else customer.getOrders().add(order);
         orderIdCounter++;
-        logger.info("Order placed successfully!");
+        logger.info("successfully!");
     }
 
     public static void scheduleAppointment2(){
         setChooseSchedule(true);
         Scanner scanner = new Scanner(System.in);
-        logger.info("what is your car model ?");
+        logger.info(" car model ?");
         String carmodel = scanner.nextLine();
-        logger.info("what is your car date ?");
+        logger.info(" car date ?");
         String carDate = scanner.nextLine();
         logger.info("Choose the installer you want ");
         logger.info("Available Installers:");
@@ -835,7 +834,7 @@ public class Main {
         }
         logger.info("Registration successful!");
         userDatabase.add(us);
-        logger.info("Now you can login!");
+        logger.info("Now you can Log_In!");
         loginUser();
     }
     public static void signin(String email,String password){
@@ -851,7 +850,7 @@ public class Main {
                 isInstallerLogged();
             }
         }
-        logger.info("Login failed. Please check your email and password.");
+        logger.info("Log_In failed. \n Please check your email and password.");
     }
 }
 
