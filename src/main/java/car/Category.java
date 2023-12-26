@@ -3,7 +3,6 @@ package car;
 
 import java.util.logging.Logger;
 import static org.example.Main.categories;
-import static org.example.Main.products;
 
 public class Category {
     private static boolean addCattego;
