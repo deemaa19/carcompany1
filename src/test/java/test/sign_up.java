@@ -61,6 +61,7 @@ public class sign_up {
     public void email2Is(String string) {
         this.email2=string;
     }
+    //lala
     @When("password2 is {string}")
     public void password2Is(String string) {
         this.password2=string;
