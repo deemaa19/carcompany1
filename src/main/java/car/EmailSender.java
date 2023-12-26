@@ -35,7 +35,7 @@ public class EmailSender {
             Transport.send(message);
 
         } catch (MessagingException m) {
-            //ErrorMsg.showError();
+            
         }
 
     }
