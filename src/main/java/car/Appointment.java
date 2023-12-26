@@ -74,7 +74,7 @@ public class Appointment {
                 setInstaller(installer);
                 Appointment appointment=new Appointment(getLoggedInCustomerName(), installer.getDate(),carmodel,carDate);
                 appointments2.add(appointment);
-                Installer.setAppointments(appointments2);
+                
                 addAppintments(appointment);
                 logger.info("Appointment confirmed !!!");
                 return true;
