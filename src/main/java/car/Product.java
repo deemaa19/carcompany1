@@ -2,12 +2,13 @@ package car;
 
 import java.util.List;
 import java.util.logging.Logger;
-
+import static car.Dates.*;
 import static org.example.Main.*;
 
 
 public class Product {
     private static boolean addProduct;
+
     private static boolean deleteProduct;
     private static boolean listProduct;
     public static boolean isAddProduct() {
