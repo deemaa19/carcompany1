@@ -11,7 +11,7 @@ public class Customer {
     private static boolean listCustomer;
     public static boolean isRegCustomer() {
         return regCustomer;
-    }
+    }//asd
 
     public static void setRegCustomer(boolean regCustomer) {
         Customer.regCustomer = regCustomer;
