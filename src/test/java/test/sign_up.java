@@ -77,6 +77,7 @@ public class sign_up {
     @Then("the user2 will not signed up")
     public void theUser2WillNotSignedUp() {
         assertTrue(user2.registerTest(username2,email2,password2,type2));
+        //sss
     }
 
 
