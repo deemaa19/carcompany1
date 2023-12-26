@@ -95,7 +95,7 @@ public class User {
         for (Installer installer : installersDatabase) {
             logger.info("Username: " + installer.getUsername() + ", Email: " + installer.getEmail() + ", User Type: " + installer.getUserType());
         }
-    }
+    }//dd
     public static boolean registerTest(String username,String email,String password,String userType){
         User us = new User(username, email, password, userType);
         for (User user : userDatabase) {

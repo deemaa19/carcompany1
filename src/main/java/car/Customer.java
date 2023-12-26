@@ -69,7 +69,7 @@ public class Customer {
         logger.info("\n" +
                 "Customer registration completed successfully!");
         return true;
-    }
+    }//dd
     public static String listCustomers() {
         StringBuilder customerList = new StringBuilder("Customers:\n");
         logger.info("Number of users in Users Data: " + userDatabase.size());

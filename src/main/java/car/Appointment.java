@@ -86,7 +86,7 @@ public class Appointment {
         return false;
 
     }
-
+//dd
 
     public static void setInstaller(Installer installer){
         selectedInstaller=installer;

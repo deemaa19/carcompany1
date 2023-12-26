@@ -8,7 +8,7 @@ import java.util.Properties;
 public class EmailSender {
     private EmailSender() {
         // Private constructor to prevent instantiation of the class
-    }
+    }//dd
 
     public static void sendEmail(String from, String to, String subject, String messageText) {
 

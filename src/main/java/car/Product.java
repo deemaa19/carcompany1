@@ -89,7 +89,7 @@ public class Product {
         products.add(new Product(name, price, category,amount));
         logger.info("Product added .");
         return true;
-    }
+    }//dd
     public static boolean productdeleteTest(String name){
         for (Product product : products) {
             if (product.getName().equals(name)) {
