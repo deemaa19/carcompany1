@@ -43,7 +43,7 @@ public class Installer {
     private static List<Appointment> appointments;
 
     public static void setAppointments(List<Appointment> appointments) {
-        //appointments = appointmentsS;
+        
     }
     public static void addAppintments(Appointment appointment){
         appointments.add(appointment);
@@ -94,7 +94,7 @@ public class Installer {
         installersDatabase.add(new Installer(id,username, email, password,type,date));
         logger.info(INSTALLERSUCCESS);
         return true;
-    }//dd
+    }
     public static void reginstallerav(String date,String installer){
         availableDates.add(new Dates(date,installer));
     }
