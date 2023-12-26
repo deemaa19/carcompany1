@@ -20,7 +20,7 @@ import static car.User.*;
 
 public class Main {
     public static final ArrayList<User> userDatabase = new ArrayList<>();
-    public static final List<Product> products = new ArrayList<>();
+    public static List<Product> products = new ArrayList<>();
     public static final List<Category> categories = new ArrayList<>();
 
     public static List<Installer> getInstallersDatabase() {
@@ -47,6 +47,7 @@ public class Main {
     public static Installer installerUser2;
     public static Product product;
     public static Category categoryy;
+    public static String totalPrice;
 
     private static Logger logger = Logger.getLogger(Main.class.getName());
     private static final String INVALIDATION="Sorry..Invalid choice.\n Please try again.";
@@ -217,12 +218,13 @@ public class Main {
     public static int manageProductsLists(){
         Scanner scanner = new Scanner(System.in);
         logger.info("\nProduct Management\n1. Add Product 2. Delete Product" +
-                "\n3. List Products 4. Back \n Enter Number: ");
+                "\n3. List Products 4. edit product \n 5. Back \n Enter Number: ");
         int choice = scanner.nextInt();
         manageProducts(choice);
         return choice;
     }
     public static int manageProducts(int choice) {
+        Scanner scanner = new Scanner(System.in);
         switch (choice) {
             case 1:
                 setAddProduct(true);
@@ -237,12 +239,55 @@ public class Main {
                 listProducts(products);
                 return 3;
             case 4:
+                logger.info("insert the name of the product that you want to edit it ..");
+                String oldName=scanner.nextLine();
+                productdeleteTest2(oldName);
+                edit1();
+            case 5:
                 adminDashboard();
                 return 4;
             default:
                 logger.info("Sorry ! Invalid choice \n  Please try again.");
         }
         return 5;
+    }
+
+    public static boolean productdeleteTest2(String name){
+        for (Product product : products) {
+            if (product.getName().equals(name)) {
+                products.remove(product);
+
+                return true;
+            }
+        }
+        logger.info("Product not found.");
+        return false;
+    }
+    public static void edit1(){
+        Scanner scanner = new Scanner(System.in);
+        logger.info("insert the new name");
+        String newName=scanner.nextLine();
+        logger.info("insert the new category");
+        String newCat=scanner.nextLine();
+        logger.info("insert the new price");
+        int newPrice=scanner.nextInt();
+        logger.info("insert the new availability");
+        int newAva=scanner.nextInt();
+        products.add(new Product(newName,newPrice,newCat,newAva));
+    }
+    public static List<Product> updateProduct(String oldProductName, String newProductName, String newProductCategorie,
+                                              int newProductPrice, int newProductAvailability) {
+        for (Product product : products) {
+            if (product.getName() == oldProductName) {
+                product.setName(newProductName);
+                product.setCategory(newProductCategorie);
+                product.setPrice(newProductPrice);
+                product.setAvailablity(newProductAvailability);
+            }
+            return products;
+        }
+        logger.info("This product is not found !!");
+        return null;
     }
     public static void addProduct() {
         Scanner scanner = new Scanner(System.in);
@@ -267,12 +312,26 @@ public class Main {
     public static void manageCategories() {
         Scanner scanner = new Scanner(System.in);
         logger.info("\nCategory Management\n1. Add Category 2. Delete Category" +
-                "\n3. List Categories 4. Search Product 5. Back \n Enter Number: ");
+                "\n3. List Categories 4. Search Product 5.edit category name 6. Back \n Enter Number: ");
         int choice = scanner.nextInt();
         scanner.nextLine();
         manageCat(choice);
     }
+    public static boolean editCat(String name){
+        Scanner scanner = new Scanner(System.in);
+        for (Category category : categories) {
+            if (category.getName().equals(name)) {
+                logger.info("write the new name you want");
+                String NName=scanner.nextLine();
+                category.setName(NName);
+                return true;
+            }
+        }
+        logger.info(" not found This Category.");
+        return false;
+    }
     public static void manageCat(int choice){
+        Scanner scanner = new Scanner(System.in);
         switch (choice) {
             case 1:
                 setAddcat(true);
@@ -291,6 +350,11 @@ public class Main {
                 searchProducts();
                 break;
             case 5:
+                logger.info("write the category you wnat to change ..");
+                String nn=scanner.nextLine();
+                editCat(nn);
+
+            case 6:
                 return;
             default:
                 logger.info("Invalid choice. Please try again.");
@@ -685,6 +749,17 @@ public class Main {
     public static List<Order> orderss;
     public static Customer customer1;
     public static List<Product> selectedProducts = new ArrayList<>();
+    public static void orderstep1(String input,List<Product> products){
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(input)&&product.getAvailablity()!=0) {
+                selectedProducts.add(product);
+                product.setAvailablity();
+                listProducts(products);
+
+                break;
+            }else if (product.getAvailablity()==0){ logger.info("There is no enough");}
+        }
+    }
     public static void ordersteps(){
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -701,6 +776,7 @@ public class Main {
                         scheduleAppointment2();
                         break;
                     case "no":
+                        logger.info("we sent to you a confirmation email ..");
                         return;
 
                     default:
@@ -717,11 +793,15 @@ public class Main {
 
         Customer customer = getLoggedInCustomer();
         Order order = new Order(orderIdCounter, selectedProducts);
+        totalPrice= String.valueOf(order.getTotalPrice());
+        for(Product product:selectedProducts){
+            String productName=product.getName();
+        }
+        sendOrderConfirmationEmail(product.getName(), Double.parseDouble(totalPrice));
 
         if (selectedProducts.isEmpty()) {
             logger.info("No products selected..");
         }
-
 
         if(customer==null){
 
@@ -815,16 +895,7 @@ public class Main {
             installerDashboard();
         }
     }
-    public static void orderstep1(String input,List<Product> products){
-        for (Product product : products) {
-            if (product.getName().equalsIgnoreCase(input)&&product.getAvailablity()!=0) {
-                selectedProducts.add(product);
-                product.setAvailablity();
-                listProducts(products);
-                break;
-            }else if (product.getAvailablity()==0){ logger.info("There is no enough");}
-        }
-    }
+
     public static void register(String username,String email,String password,String userType){
         User us = new User(username, email, password, userType);
         for (User user : userDatabase) {
@@ -852,5 +923,20 @@ public class Main {
         }
         logger.info("Log_In failed. \n Please check your email and password.");
     }
+
+    public static void sendOrderConfirmationEmail(String productName,  double totalPrice) {
+        String from= "laith.nnn96@gmail.com";
+        String to = "s11927490@stu.najah.edu";
+
+        String subject = "Order Confirmation";
+        String messageText = "Thank you for your order!\n\n"
+                + "Product Name: " + productName + "\n"
+                + "Total Price: " + totalPrice + "$"+ "\n\n"
+                + "We appreciate your business.";
+
+
+        EmailSender.sendEmail(from, to, subject, messageText);
+    }
+
 }
 

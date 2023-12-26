@@ -28,6 +28,23 @@ public class Product {
     public static void setListProduct(boolean listProduct) {
         Product.listProduct = listProduct;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setAvailablity(int availablity) {
+        this.availablity = availablity;
+    }
+
     private String name;
     private double price;
     private String category;
@@ -39,6 +56,7 @@ public class Product {
         this.category=category;
         this.availablity=availablity;
     }
+
     public String getName() {
         return name;
     }
@@ -76,10 +94,6 @@ public class Product {
         }
         logger.info("Product not found.");
         return false;
-
     }
-
-
-
 
 }

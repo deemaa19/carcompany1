@@ -42,6 +42,10 @@ public class Category {
     }
 
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private String name;
     private static Logger logger = Logger.getLogger(Category.class.getName());
 
@@ -81,6 +85,7 @@ public class Category {
         logger.info(" not found This Category.");
         return false;
     }
+
     public static void deletenoti(){ logger.info("\n" +
             "Category successfully removed...");
     }
