@@ -2,9 +2,7 @@ package org.example;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.Logger;
 
 
@@ -47,7 +45,7 @@ public class Main {
     public static Installer installerUser2;
     public static Product product;
     public static Category categoryy;
-    public static String totalPrice;
+    public static double totalPriceP=0.0;
 
     private static Logger logger = Logger.getLogger(Main.class.getName());
     private static final String INVALIDATION="Sorry..Invalid choice.\n Please try again.";
@@ -755,10 +753,23 @@ public class Main {
                 selectedProducts.add(product);
                 product.setAvailablity();
                 listProducts(products);
-
                 break;
             }else if (product.getAvailablity()==0){ logger.info("There is no enough");}
         }
+        Order order = new Order(orderIdCounter, selectedProducts);
+        totalPriceP=order.getTotalPrice();
+        String ss=getSelected();
+        sendOrderConfirmationEmail(ss,totalPriceP );
+    }
+    public static String getSelected(){
+        StringBuilder sb = new StringBuilder();
+        for (Product product : selectedProducts) {
+            sb.append("Name: ").append(product.getName())
+                    .append(", Price: ").append(product.getPrice())
+                    .append("\n");
+            //totalPriceP=totalPriceP+product.getPrice();
+        }
+        return sb.toString();
     }
     public static void ordersteps(){
         Scanner scanner = new Scanner(System.in);
@@ -777,6 +788,8 @@ public class Main {
                         break;
                     case "no":
                         logger.info("we sent to you a confirmation email ..");
+                        //String ordered=selectedProducts.toString();
+
                         return;
 
                     default:
@@ -793,16 +806,13 @@ public class Main {
 
         Customer customer = getLoggedInCustomer();
         Order order = new Order(orderIdCounter, selectedProducts);
-        totalPrice= String.valueOf(order.getTotalPrice());
-        for(Product product:selectedProducts){
-            String productName=product.getName();
-        }
-        sendOrderConfirmationEmail(product.getName(), Double.parseDouble(totalPrice));
+        //totalPriceP=order.getTotalPrice();
+
+
 
         if (selectedProducts.isEmpty()) {
             logger.info("No products selected..");
         }
-
         if(customer==null){
 
             logger.info("Insert Customer Name: ");
@@ -815,6 +825,9 @@ public class Main {
         }else customer.getOrders().add(order);
         orderIdCounter++;
         logger.info("successfully!");
+
+
+
     }
 
     public static void scheduleAppointment2(){
