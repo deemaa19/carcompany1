@@ -42,9 +42,7 @@ public class Installer {
 
     private static List<Appointment> appointments;
 
-    public static void setAppointments(List<Appointment> appointments) {
-        
-    }
+
     public static void addAppintments(Appointment appointment){
         appointments.add(appointment);
     }
